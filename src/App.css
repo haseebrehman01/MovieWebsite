@@ -74,7 +74,7 @@ a:hover {
 .section-navbar .navbar ul li .active {
   color: #535bf2;
 }
-
+/* auto by router */
 .active {
   color: #535bf2;
 }

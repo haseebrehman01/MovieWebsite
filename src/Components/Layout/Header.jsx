@@ -2,6 +2,11 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 function Header() {
+    const styles = ({isActive}) =>{
+
+      return {color: isActive ? "#535bf2" : " var(--heading-color)"}
+        
+    }
   return (
     <header className="section-navbar">
         <section className="top_txt">
@@ -28,7 +33,7 @@ function Header() {
               <li className="nav-item">
                 <NavLink
                   to="/Home"
-
+               
                 >
                   Home
                 </NavLink>
@@ -36,7 +41,7 @@ function Header() {
               <li className="nav-item">
                 <NavLink
                   to="About"
-
+                 className={({isActive})=> isActive ? "nav-link active" : "nav-link"}
                 >
                   about
                 </NavLink>
@@ -44,7 +49,12 @@ function Header() {
               <li className="nav-item">
                 <NavLink
                   to="Movie"
- 
+                //   second method to handle active class
+                style={({isActive}) => {
+                    return {
+                        color: isActive ? "#535bf2" : " var(--heading-color)"
+                    }
+                }}
                 >
                   movies
                 </NavLink>
@@ -52,7 +62,8 @@ function Header() {
               <li className="nav-item">
                 <NavLink
                  to="Contact"
-
+// third method
+              style={styles}
                 >
                   contact
                 </NavLink>
