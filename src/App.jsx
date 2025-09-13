@@ -1,4 +1,5 @@
 import React from 'react'
+import './App.css'
 import { createBrowserRouter , RouterProvider } from 'react-router-dom'
 import Home from './Home'
 import About from './About'
@@ -12,7 +13,7 @@ const router = createBrowserRouter([
   element:<AppLayout />,
   children:[
     {
-    path: '/',
+    path: '/Home',
     element: <Home />
   },
     {
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
     element: <Movie />
   },
       {
+        
     path: '/Contact',
     element: <Contact />
   },
