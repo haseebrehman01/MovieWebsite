@@ -29,7 +29,8 @@ html {
 body {
   margin: 0 auto;
   padding: 0 32px;
-  min-width: 320px;
+  min-width: 370px;
+  border: 1px solid red;
   background-color: var(--backgroundColor);
 }
 h1,
@@ -120,11 +121,12 @@ a:hover {
   padding: 1.2rem 3.2rem;
   background-color: #b50c12;
   color: #fff;
-  text-transform: capitalize;
+  text-transform: capitalize !important;
   border-radius: 0.6rem;
   -webkit-border-radius: 0.6rem;
   -moz-border-radius: 0.6rem;
   -ms-border-radius: 0.6rem;
+  
   -o-border-radius: 0.6rem;
 }
 .section-common--title {
@@ -458,14 +460,17 @@ main .section-hero {
 ---------------------------- */
 
 .error-section {
+  /* padding-bottom: 0px; */
   width: 100%;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   background-color: #ffffff;
   color: var(--buttonColor);
+  /* border: 1px solid red; */
 
   & p,
   h1 {
@@ -848,4 +853,13 @@ footer {
   :is(.section-contact--homepage) .container:first-child {
     padding: 6.4rem 0rem 2.4rem;
   }
+}
+
+
+
+
+/* Btn */
+.btn-div{
+  display: flex;
+  gap: 20px;
 }

@@ -6,11 +6,14 @@ import About from './About'
 import Movie from './Movie'
 import Contact from './Contact'
 import AppLayout from './Components/Layout/AppLayout'
+import ErrorPage from './ErrorPage'
+
 function App() {
 const router = createBrowserRouter([
  {
   path:'/',
   element:<AppLayout />,
+  errorElement:<ErrorPage />,//for Error page
   children:[
     {
     path: '/Home',
