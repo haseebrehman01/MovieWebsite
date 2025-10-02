@@ -30,7 +30,7 @@ body {
   margin: 0 auto;
   padding: 0 32px;
   min-width: 370px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   background-color: var(--backgroundColor);
 }
 h1,
@@ -863,3 +863,5 @@ footer {
   display: flex;
   gap: 20px;
 }
+
+

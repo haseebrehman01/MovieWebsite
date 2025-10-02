@@ -7,6 +7,7 @@ import Movie from './Movie'
 import Contact from './Contact'
 import AppLayout from './Components/Layout/AppLayout'
 import ErrorPage from './ErrorPage'
+import {getMoviesData} from './APi/getMoviesData'
 
 function App() {
 const router = createBrowserRouter([
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
   errorElement:<ErrorPage />,//for Error page
   children:[
     {
-    path: '/Home',
+    path: '/',
     element: <Home />
   },
     {
@@ -25,7 +26,8 @@ const router = createBrowserRouter([
   },
       {
     path: '/Movie',
-    element: <Movie />
+    element: <Movie />,
+    loader: getMoviesData
   },
       {
         

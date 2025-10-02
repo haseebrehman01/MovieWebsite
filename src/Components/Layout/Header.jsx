@@ -32,7 +32,7 @@ function Header() {
             <ul>
               <li className="nav-item">
                 <NavLink
-                  to="/Home"
+                  to="/"
                
                 >
                   Home
