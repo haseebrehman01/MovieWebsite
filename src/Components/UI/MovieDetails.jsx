@@ -28,7 +28,7 @@ export const MovieDetails = () => {
   const minutes = totalMinutes % 60; // get remaining minutes
 
   const formattedTime = `${hours}hr ${minutes}min`; // final readable format
-  console.log(formattedTime);
+  // console.log(formattedTime);
 
   return (
     // Movie container

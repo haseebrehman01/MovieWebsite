@@ -2,7 +2,7 @@
 
 // Loader function to fetch movie details based on the MovieId from route params
 export const getMovieDetails = async ({ params }) => {
-  console.log(params); // For debugging: see what params object looks like
+  // console.log(params); // For debugging: see what params object looks like
 
   const id = params.MovieId; // Extract MovieId from params
 
