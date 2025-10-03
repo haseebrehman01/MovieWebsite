@@ -1,6 +1,7 @@
 ## 🎬 HaseebFlix Movie Website
 
-**Live Demo:** **[https://deluxe-gnome-0db12a.netlify.app/](https://deluxe-gnome-0db12a.netlify.app/)**
+**Live Demo**
+👉 **[Click Here to Try HaseebFlix](https://funny-pixie-55693b.netlify.app/)**  
 
 -----
 
