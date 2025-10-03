@@ -28,6 +28,3 @@
 | **Vite** | Bundler and Development Server |
 | **JavaScript (JSX)** | Programming Language |
 
-
-
-This version is clean, direct, and perfect for your GitHub r
