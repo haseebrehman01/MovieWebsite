@@ -12,19 +12,30 @@ const movieDetails = useLoaderData()
 
 // console.log(movieDate);
   const {
-    // Actor,
+    Actor,
     Poster,
     Title,
-    // Runtime,
-    // Genre,
+    Runtime,
+    Genre,
     Type,
     Year,
     Plot,
     BoxOffice,
-    // imdbID,
+    imdbID,
     Awards,
     imdbRating,
   } = movieDetails;
+
+
+    // 192min
+  const totalMinutes = Runtime.replace("min", "");
+  const hours = Math.floor(totalMinutes / 60); // Calculate the number of hours
+  const minutes = totalMinutes % 60; // Calculate the remaining minutes
+
+  console.log(hours, minutes);
+
+  const formattedTime = `${hours}hr ${minutes}min`;
+  console.log(formattedTime);
   return (
     <li className="hero-container hero-movie-container">
       <div className="main-container">
@@ -50,12 +61,12 @@ const movieDetails = useLoaderData()
                 </span>
                 Rating: {imdbRating}
               </p>
-              {/* <p className="movie__detail">
+              <p className="movie__detail">
                 <span className="icons icons-grey">
                   <i className="fas fa-clock"></i>
                 </span>
                 {formattedTime}
-              </p> */}
+              </p>
               <p className="movie__detail">
                 <span className="icons icons-yellow">
                   <i className="fas fa-file-invoice-dollar"></i>

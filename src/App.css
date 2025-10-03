@@ -313,6 +313,10 @@ main .section-hero {
 .section-hero img {
   width: 100%;
   height: auto;
+  /* border: 1px solid red; */
+  border-radius: 20px;
+  /* margin-top: -10px; */
+
   /* transform: scaleX(-1); */
 }
 .div-extra {
@@ -795,7 +799,7 @@ footer {
     place-items: center;
   }
   .section-hero img {
-    width: 40%;
+    width: 20%;
   }
   .section-about .about-div {
     text-align: left;
