@@ -28,18 +28,6 @@
 | **Vite** | Bundler and Development Server |
 | **JavaScript (JSX)** | Programming Language |
 
------
 
-## 🚀 Get Started
 
-To run this project locally, clone the repository and run the following commands:
-
-```bash
-npm install
-npm run dev
-```
-
------
-
-This version is clean, direct, and perfect for your GitHub repository\!
-
+This version is clean, direct, and perfect for your GitHub r
