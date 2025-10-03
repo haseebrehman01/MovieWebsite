@@ -5,7 +5,11 @@ function Footer() {
     <footer className="section-footer">
       <div className="footer-container container">
         <div className="content_1">
-          <img src="./images/logo.png" alt="logo" />
+                   <div className="navbar-brand">
+       
+              <p>HaseebFlix</p>
+  
+          </div>
           <p>
             Welcome to Haseeb EcomStore, your ultimate destination for
             cutting-edge gadgets!

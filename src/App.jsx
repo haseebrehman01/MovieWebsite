@@ -1,52 +1,54 @@
-import React from 'react'
 import './App.css'
 import { createBrowserRouter , RouterProvider } from 'react-router-dom'
-import {Home} from './Home'
-import {About} from './About'
+import { Home } from './Home'
+import { About } from './About'
 import Movie from './Movie'
-import {Contact, contactData} from './Contact'
+import { Contact, contactData } from './Contact'
 import AppLayout from './Components/Layout/AppLayout'
 import ErrorPage from './ErrorPage'
-import {getMoviesData} from './APi/getMoviesData'
-import {MovieDetails} from './Components/UI/MovieDetails'
+import { getMoviesData } from './APi/getMoviesData'
+import { MovieDetails } from './Components/UI/MovieDetails'
 import { getMovieDetails } from './APi/GetMovieDetails'
+
 function App() {
-const router = createBrowserRouter([
- {
-  path:'/',
-  element:<AppLayout />,
-  errorElement:<ErrorPage />,//for Error page
-  children:[
+
+  // Define all routes for the application
+  const router = createBrowserRouter([
     {
-    path: '/',
-    element: <Home />
-  },
-    {
-    path: '/About',
-    element: <About />
-  },
-      {
-    path: '/Movie',
-    element: <Movie />,
-    loader: getMoviesData
-  },
-        {
-    path: '/Movie/:MovieId',
-    element: <MovieDetails />,
-    loader: getMovieDetails
-  },
-      {
+      path: '/',                          // Base path
+      element: <AppLayout />,             // Main layout wrapper
+      errorElement: <ErrorPage />,        // Error page for invalid routes
+      children: [                         // Nested routes inside AppLayout
         
-    path: '/Contact',
-    element: <Contact />,
-    action: contactData
-  },
-]
+        {
+          path: '/',                      // Home page
+          element: <Home />
+        },
+        {
+          path: '/About',                 // About page
+          element: <About />
+        },
+        {
+          path: '/Movie',                 // Movies list page
+          element: <Movie />,
+          loader: getMoviesData           // Fetch movies data before rendering
+        },
+        {
+          path: '/Movie/:MovieId',        // Movie details page (dynamic route)
+          element: <MovieDetails />,
+          loader: getMovieDetails         // Fetch single movie details
+        },
+        {
+          path: '/Contact',               // Contact page
+          element: <Contact />,
+          action: contactData             // Handles form submission on contact page
+        },
+      ]
+    }
+  ])
 
- }
-])
-
-return <RouterProvider router={router} />
+  // Provide router to the app
+  return <RouterProvider router={router} />
 }
 
 export default App

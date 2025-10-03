@@ -543,6 +543,7 @@ footer {
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   margin-top: 6.4rem;
+      padding-inline: 25px;
 }
 .footer-container .content_1 img {
   height: auto;
@@ -781,7 +782,9 @@ footer {
   .footer-container .content_4 {
     margin-top: 3.2rem;
   }
+
   main .section-hero {
+    /* margin-top: 20px; */
     height: auto;
   }
   main .section-hero .grid-two--cols {

@@ -1,22 +1,30 @@
 import { NavLink } from "react-router-dom";
 import "./Card.css";
-/* eslint-disable react/prop-types */
 
+
+// Card component receives "curMovie" as a prop
 export const Card = ({ curMovie }) => {
+  // Destructure needed values from curMovie
   const { Poster, imdbID } = curMovie;
+
   return (
     <li className="hero-container">
       <div className="main-container">
+        
+        {/* Movie Poster */}
         <div className="poster-container">
           <img src={Poster} className="poster" alt={imdbID} />
         </div>
+
+        {/* Ticket section with button */}
         <div className="ticket-container">
           <div className="ticket__content">
-        
-              <NavLink to={`/Movie/${imdbID}`}>
+            
+            {/* Navigate to the Movie details page using imdbID */}
+            <NavLink to={`/Movie/${imdbID}`}>
               <button className="ticket__buy-btn">Watch now</button>
-              </NavLink>
-          
+            </NavLink>
+
           </div>
         </div>
       </div>

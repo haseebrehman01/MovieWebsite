@@ -1,4 +1,3 @@
-
 import { NavLink } from "react-router-dom";
 
 export const Home = () => {
@@ -26,9 +25,8 @@ export const Home = () => {
           <div className="section-hero-image">
             <img
               // src="./assets/images/movies.png"
-src="https://cdn.dribbble.com/userupload/8823241/file/original-4333c360e973493087e4507190e98c78.jpg?resize=752x&vertical=center"
+              src="https://cdn.dribbble.com/userupload/8823241/file/original-4333c360e973493087e4507190e98c78.jpg?resize=752x&vertical=center"
               alt="movies poster"
-         
             />
           </div>
         </div>

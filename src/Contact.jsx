@@ -1,72 +1,106 @@
-import { Form } from "react-router-dom";
+import { Form, useActionData, useNavigation } from "react-router-dom";
+import { useEffect, useRef } from "react";
 
-// 🔹 ye function action ke liye hai jo <Form> submit hone par chalega
+// 🔹 Action function that runs when <Form> is submitted
 export const contactData = async ({ request }) => {
   try {
-    const res = await request.formData(); // form se data nikal rahe ho
-    const data = Object.fromEntries(res); // us data ko JS object mai convert kar rahe ho
-    console.log(data); // abhi ke liye console par check kar rahe ho
-    return null; // abhi koi response nahi bhej rahe
+    const res = await request.formData();
+    const data = Object.fromEntries(res);
+
+    console.log("Form Data:", data);
+
+    // Simulating success (you could send data to backend here)
+    return { success: true, message: "Your message has been sent successfully!" };
   } catch (e) {
-    console.log(e); // agar error aayi to console par show hoga
+    console.log(e);
+    return { success: false, message: "Something went wrong, please try again." };
   }
 };
 
 export const Contact = () => {
+  const actionData = useActionData();
+  const navigation = useNavigation(); // to check form state (submitting or idle)
+  const formRef = useRef(); // reference to the form element
+
+  // 🔹 Reset form fields after successful submission
+  useEffect(() => {
+    if (actionData?.success && formRef.current) {
+      formRef.current.reset();
+    }
+  }, [actionData]);
+
   return (
     <>
       <section className="container">
-        <h2 className="section-common--heading">contact us</h2>
+        <h2 className="section-common--heading">Contact Us</h2>
         <p className="section-common--subheading">
           Get in touch with us. We are always here to help you.
         </p>
+
+        {/* Show success or error message after form submission */}
+        {actionData && (
+          <p
+            style={{
+              color: actionData.success ? "green" : "red",
+              fontWeight: "bold",
+              marginTop: "10px",
+            }}
+          >
+            {actionData.message}
+          </p>
+        )}
 
         <div className="section-contact">
           <div className="grid grid-two--cols">
             {/* 🔹 Left side - Contact form */}
             <div className="contact-content">
-              {/* Form jo react-router-dom ka hai */}
-              <Form method="POST" action="/contact">
+              <Form method="POST" action="/contact" ref={formRef}>
                 <div className="grid grid-two-cols mb-3">
                   <div>
-                    <label htmlFor="username">full name</label>
+                    <label htmlFor="username">Full Name</label>
                     <input
                       type="text"
                       name="username"
                       id="username"
                       required
                       autoComplete="off"
-                      placeholder="enter full name"
+                      placeholder="Enter full name"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="email">email address</label>
+                    <label htmlFor="email">Email Address</label>
                     <input
                       type="email"
                       name="email"
                       id="email"
                       required
                       autoComplete="off"
-                      placeholder="abc@thapa.com"
+                      placeholder="abc@example.com"
                     />
                   </div>
                 </div>
 
                 <div className="mb-3">
-                  <label htmlFor="message">message</label>
+                  <label htmlFor="message">Message</label>
                   <textarea
                     name="message"
-                    id="message"   // 🔹 yahan tumne extra space de diya tha "message "
+                    id="message"
                     cols="30"
                     rows="10"
-                    placeholder="we are always here to help you."
+                    placeholder="We are always here to help you."
                   ></textarea>
                 </div>
 
                 <div className="mt-3">
-                  <button type="submit" className="btn contact-btn">
-                    send message
+                  <button
+                    type="submit"
+                    className="btn contact-btn"
+                    disabled={navigation.state === "submitting"} // disable while sending
+                  >
+                    {navigation.state === "submitting"
+                      ? "Sending..."
+                      : "Send Message"}
                   </button>
                 </div>
               </Form>
@@ -77,7 +111,7 @@ export const Contact = () => {
               <figure>
                 <img
                   src="/contact.png"
-                  alt="contact pic"
+                  alt="contact illustration"
                   className="contact_image"
                 />
               </figure>
